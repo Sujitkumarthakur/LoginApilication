@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:gravity="center_vertical"
-        android:paddingTop="40dp"
+        android:paddingTop="41dp"
         android:hint="Enter user name"
         android:textSize="30dp"
         android:paddingBottom="40dp"
