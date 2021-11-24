@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">LoginAppilication</string>
+    <string name="text">Please enter the 6 digit password assigned to you ! </string>
+    <string name="text1">This is the Second Activity! </string>
+</resources>
