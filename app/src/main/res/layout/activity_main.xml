@@ -10,11 +10,10 @@
         android:id="@+id/edittext1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Enter Your name"
-        android:gravity="center_horizontal"
         android:layout_centerInParent="true"
-        android:paddingTop="10dp"
-        />
+        android:gravity="center_horizontal"
+        android:hint="Enter Your name"
+        android:paddingTop="10dp" />
 
     <TextClock
         android:layout_width="match_parent"
@@ -22,30 +21,39 @@
         android:layout_below="@+id/butt"
         android:layout_centerHorizontal="true"
         android:layout_margin="50dp"
-        android:textSize="40dp"
         android:format12Hour="hh:mm:ss a"
-        android:timeZone="GMT+0800"
-        />
+        android:textSize="40dp"
+        android:timeZone="GMT+0800" />
 
     <EditText
         android:id="@+id/edittext2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Enter Your Password"
         android:layout_below="@+id/edittext1"
-        android:gravity="center_horizontal"
         android:layout_centerInParent="true"
-        android:paddingTop="10dp"
         android:layout_marginTop="10dp"
-        />
+        android:gravity="center_horizontal"
+        android:hint="Enter Your Password"
+        android:paddingTop="10dp" />
+
     <Button
-        android:id="@+id/butt"
+        android:id="@+id/butt1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/edittext2"
-        android:layout_centerInParent="true"
+        android:layout_alignParentLeft="true"
         android:layout_marginTop="10dp"
+        android:paddingRight="20dp"
         android:text="Insert"
-        android:textSize="30dp"
-        />
+        android:textSize="30dp" />
+
+    <Button
+        android:id="@+id/butt2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edittext2"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="10dp"
+        android:text="Update"
+        android:textSize="30dp" />
 </RelativeLayout>

@@ -1,7 +1,9 @@
 package com.example.android.sqlitedatabase;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
@@ -12,7 +14,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 EditText et1, et2;
-Button but1;
+Button insert,view;
 TextClock txtclk1;
 database g;
     @Override
@@ -23,12 +25,12 @@ database g;
         //find view id for all the buttons and text views...
         et1=(EditText)findViewById(R.id.edittext1);
         et2=(EditText)findViewById(R.id.edittext2);
-        but1=(Button)findViewById(R.id.butt);
-
+        insert=(Button)findViewById(R.id.butt);
+        view=(Button)findViewById(R.id.butt2);
         g= new database(this);
        // SQLiteDatabase db=g.getReadableDatabase();
 
-        but1.setOnClickListener(new View.OnClickListener() {
+        insert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String name=et1.getText().toString();
@@ -47,7 +49,33 @@ database g;
                        Toast.makeText(MainActivity.this, "Successfully inserted!", Toast.LENGTH_SHORT).show();
                    }
                 }
+                et1.setText("");
+                et2.setText("");
             }
+        });
+
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Cursor t=g.getinfo();
+                if(t.getCount()==0)
+                {
+                    Toast.makeText(MainActivity.this, "No data Found !", Toast.LENGTH_SHORT).show();
+                }
+                StringBuffer buffer= new StringBuffer();
+                while(t.moveToNext())
+                {
+                    buffer.append("username"+t.getString(1)+"\n");
+                    buffer.append("password"+t.getString(2)+"\n");
+
+                }
+                AlertDialog.Builder builder= new AlertDialog.Builder(MainActivity.this);
+                builder.setCancelable(true);
+                builder.setTitle("Data from SqliteDatabase !");
+                builder.setMessage(buffer.toString());
+                builder.show();
+            }
+
         });
     }
 }
